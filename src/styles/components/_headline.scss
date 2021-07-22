@@ -1,4 +1,4 @@
-.headline {
+.headline-section {
   text-align: center;
   h1 {
     padding: 5rem 0 3rem 0;
@@ -9,7 +9,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .headline {
+  .headline-section {
     p {
       padding: 1rem 5rem;
     }

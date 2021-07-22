@@ -12,7 +12,7 @@ const Headline = ({
     textLineTwo='Additional text goes here',
 }) => {
     return(
-        <div className='headline'>
+        <div className='headline-section'>
             <h1>
                 {title}
             </h1>

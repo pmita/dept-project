@@ -3,6 +3,7 @@ import React from 'react';
 import './styles/App.scss';
 //importing our components
 import Headline from './components/Headline';
+import SelectCity from './components/SelectCity';
 //importing our state from Context Api
 import { StateProvider } from './components/StateContext';
 
@@ -16,6 +17,7 @@ function App() {
           textLineOne='Compare the air quality between cities in the UK.'
           textLineTwo='Select cities to compare using the search tool below.'
         />
+        <SelectCity />
       </div>
     </StateProvider>
 
