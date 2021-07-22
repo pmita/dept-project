@@ -10,4 +10,13 @@
 @import "./abstract/variables";
 @import "./base/global";
 
+.App {
+  min-height: 100vh;
+  width: 100%;
+  background: $main-color;
+  color: $secondary-color;
+  @include flex(column, flex-start, center);
+}
+
 //Importing our projects' styling
+@import "./components/headline";
