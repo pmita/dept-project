@@ -1,3 +1,7 @@
+import React from 'react';
+//importing our Sass styling
+import './styles/App.scss';
+
 
 function App() {
   return (

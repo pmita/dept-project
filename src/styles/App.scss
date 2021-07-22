@@ -1,0 +1,13 @@
+//Creating re-usable css snipets with mixins
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+//Importing our static styling
+@import "./abstract/variables";
+@import "./base/global";
+
+//Importing our projects' styling
