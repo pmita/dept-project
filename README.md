@@ -7,5 +7,7 @@ from. We have a full array including all cities available and as the user types 
 
 The second most importand part if of course fetching the data. Once we got data back we make sure we save the appropriate information on our state and then render each item on a new card component. This gives us the flexibility to also add/remove more cities while being automatically re-rendered by react.
 
+![carbon(1)](https://user-images.githubusercontent.com/56344856/126783513-b355ee93-ad24-49b1-bf1f-d95d16cdbc92.png)
+
 Important takeaway would include to do some more error handling and maybe including an error boundary element to make sure the application doesn't skip. But overall this was a fun project to go on and about in a day. Again some minor css changes here and there, but the sass was configured well enough so changing those to the style guide wouldn't take much time.
 
