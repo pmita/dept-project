@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const SelectCity = () => {
     //destructuring  the state from the Context api
-    const [allLocations, setAllLocations, citiesToChooseFrom, setCitiesToChooseFrom, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom] = useContext(StateContext);
+    const [allLocations, setAllLocations, citiesToChooseFrom, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom] = useContext(StateContext);
 
     /*
         -------------Event handlers go here------------------
@@ -28,8 +28,12 @@ const SelectCity = () => {
     const selectCityHandler = (city) => {
         setInputCity(city);
         setFilteredCitiesToChooseFrom([]);
-        //user selects city so we fetch the data from the api
-        getApiData(city);
+        getApiData(city); //user selects city so we fetch the data from the api
+    }
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log('Please select a city from the list');
     }
 
     /*
@@ -63,6 +67,8 @@ const SelectCity = () => {
                 location: cityData.location,
                 measurements: cityData.measurements
             }]);
+
+            setInputCity(''); //at the end reset the input text
         } catch(err){
             console.error('Please try a different city, openAQ does not recognise this one');
         }
@@ -70,7 +76,7 @@ const SelectCity = () => {
 
     return(
         <div className="selectCity-section">
-            <form>
+            <form onSubmit={onSubmitHandler}>
                 <img src={searchBtn} alt='search button' />
                 <input 
                     type="text"

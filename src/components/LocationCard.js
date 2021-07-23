@@ -17,6 +17,7 @@ const LocationCard = ({ id, city, location, measurements, allLocations, setAllLo
         --------------Additional functions go here-----------
     */
    const calcLastUpdate = () => {
+       //Nothing special, just calculating how much time has elapsed since the last update from the api
        const currentDate = new Date();
        const dataDate = Date.parse(measurements[0].lastUpdated);
        const timePassed = currentDate - dataDate;
@@ -24,7 +25,7 @@ const LocationCard = ({ id, city, location, measurements, allLocations, setAllLo
        const daysElapsed = Math.floor(timePassed / (1000 * 60 *60 *24));
        const monthsElapsed = Math.floor(daysElapsed / 30);
        const hoursElapsed = Math.floor((timePassed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
+        //displaying the time elapsed accordingly. This whole section could be done a bit cleaner
        if( monthsElapsed !== 0){
            return (`${monthsElapsed} months ago`);
        } else if( daysElapsed !== 0){

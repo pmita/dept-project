@@ -4,6 +4,7 @@
   padding: 0 10rem;
   min-height: 70vh;
   display: grid;
+  //No need for media queries. Grid gives us enough flexibility already
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: minmax(200px, 250px);
   gap: 2rem;
