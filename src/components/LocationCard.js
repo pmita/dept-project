@@ -1,13 +1,6 @@
 import React from 'react';
 
-const LocationCard = ({
-    id,
-    city,
-    location,
-    measurements,
-    allLocations, 
-    setAllLocations
-}) => {
+const LocationCard = ({ id, city, location, measurements, allLocations, setAllLocations }) => {
 
     /*
         --------------Setting up our event handlers-----------

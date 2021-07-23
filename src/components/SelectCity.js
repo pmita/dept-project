@@ -47,19 +47,23 @@ const SelectCity = () => {
     }
 
     const getApiData = async (city) => {
-        //Fetch data from api based on the city the user selects
-        const apiLink = `https://api.openaq.org/v1/latest?city=${city}`;
-        const response = await fetch(apiLink);
-        const responseJSON = await response.json();
-        const cityData = await responseJSON.results[0];
+        try{
+            //Fetch data from api based on the city the user selects
+            const apiLink = `https://api.openaq.org/v1/latest?city=${city}`;
+            const response = await fetch(apiLink);
+            const responseJSON = await response.json();
+            const cityData = await responseJSON.results[0];
 
-        //Save the data to a new cell of the allLocations array
-        await setAllLocations([...allLocations, {
-            id: uuidv4(),
-            city: cityData.city,
-            location: cityData.location,
-            measurements: cityData.measurements
-        }]);
+            //Save the data to a new cell of the allLocations array
+            await setAllLocations([...allLocations, {
+                id: uuidv4(),
+                city: cityData.city,
+                location: cityData.location,
+                measurements: cityData.measurements
+            }]);
+        } catch(err){
+            console.error('Please try a different city, openAQ does not recognise this one');
+        }
     }
 
     return(
