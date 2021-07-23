@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 //importing the state from our StateContext
 import { StateContext } from './StateContext';
+//importing a unique identifier generator
+import { v4 as uuidv4 } from 'uuid';
 
 const SelectCity = () => {
-    //de-costructing the state from the Context api
-    const [citiesToChooseFrom, setCitiesToChooseFrom, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom, allLocations, setAllLocations] = useContext(StateContext);
+    //destructuring  the state from the Context api
+    const [allLocations, setAllLocations, citiesToChooseFrom, setCitiesToChooseFrom, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom] = useContext(StateContext);
 
     /*
         -------------Event handlers go here------------------
@@ -53,6 +55,7 @@ const SelectCity = () => {
 
         //Save the data to a new cell of the allLocations array
         await setAllLocations([...allLocations, {
+            id: uuidv4(),
             city: cityData.city,
             location: cityData.location,
             measurements: cityData.measurements

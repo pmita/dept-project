@@ -1,0 +1,32 @@
+.location-card {
+  padding: 2rem;
+  @include flex(column, space-evenly, flex-start);
+  background: white;
+  color: black;
+  border-radius: 20px;
+  position: relative;
+  button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    background: white;
+    border: none;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.highlight-text {
+  color: $main-color;
+}
+
+.bold-text {
+  font-family: "OpenSans Bold", sans-serif;
+}

@@ -6,13 +6,15 @@ export const StateContext = createContext();
 
 export const StateProvider = (props) => {
     //setting up our state
+    const [allLocations, setAllLocations] = useState([]);
     const [cityOptions, setCityOptions] = useState(allCities);
     const [inputCity, setInputCity] = useState('');
     const [filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom] = useState([]);
-    const [allLocations, setAllLocations] = useState([]);
 
     return(
-        <StateContext.Provider value={[cityOptions, setCityOptions, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom, allLocations, setAllLocations]}>
+        <StateContext.Provider 
+            value={[allLocations, setAllLocations, cityOptions, setCityOptions, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom]}
+        >
             {props.children}
         </StateContext.Provider>
     )

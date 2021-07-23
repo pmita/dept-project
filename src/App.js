@@ -4,6 +4,7 @@ import './styles/App.scss';
 //importing our components
 import Headline from './components/Headline';
 import SelectCity from './components/SelectCity';
+import LocationsSection from './components/LocationsSection';
 //importing our state from Context Api
 import { StateProvider } from './components/StateContext';
 
@@ -18,6 +19,7 @@ function App() {
           textLineTwo='Select cities to compare using the search tool below.'
         />
         <SelectCity />
+        <LocationsSection />
       </div>
     </StateProvider>
 
