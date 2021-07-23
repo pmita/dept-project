@@ -4,9 +4,16 @@
   position: relative;
   form {
     width: 100%;
+    img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
     input {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1rem 1rem 4rem;
       border-radius: 5px;
       border: none;
       outline: none;

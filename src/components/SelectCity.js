@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 //importing the state from our StateContext
 import { StateContext } from './StateContext';
+//importing assets
+import searchBtn from '../assets/icons/search.svg';
 //importing a unique identifier generator
 import { v4 as uuidv4 } from 'uuid';
 
@@ -69,6 +71,7 @@ const SelectCity = () => {
     return(
         <div className="selectCity-section">
             <form>
+                <img src={searchBtn} alt='search button' />
                 <input 
                     type="text"
                     placeholder="Enter city name..."

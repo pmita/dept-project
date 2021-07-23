@@ -1,4 +1,6 @@
 import React from 'react';
+//importing assets
+import cancelBtn from '../assets/icons/close.svg';
 
 const LocationCard = ({ id, city, location, measurements, allLocations, setAllLocations }) => {
 
@@ -45,7 +47,7 @@ const LocationCard = ({ id, city, location, measurements, allLocations, setAllLo
             <button
                 onClick={updateListHandler}
             >
-                X
+                <img src={cancelBtn} alt='cancel button' />
             </button>
         </div>
     );
