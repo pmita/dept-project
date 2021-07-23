@@ -3,24 +3,18 @@ import React, { useContext } from 'react';
 import { StateContext } from './StateContext';
 
 const SelectCity = () => {
-    //setting up state from our StateContext
-    const [
-        citiesToChooseFrom, setCitiesToChooseFrom,
-        inputCity, setInputCity,
-        filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom
-    ] = useContext(StateContext);
+    //de-costructing the state from the Context api
+    const [citiesToChooseFrom, setCitiesToChooseFrom, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom, allLocations, setAllLocations] = useContext(StateContext);
 
-
-
-    //setting our event handlers
+    /*
+        -------------Event handlers go here------------------
+    */
     const inputTextHandler = (e) => {
         const currentTextString = e.target.value;
-
         //if user hasn't typed anything then reset the filteredCitiesToChooseFrom array to empty
         if(currentTextString === '') setFilteredCitiesToChooseFrom([]);
 
-        //As user types check for any matches within the citiesToChooseFrom array. Matches
-        //go into filteredCitiesToChooseFrom array which updates as user keeps typing
+        //As user types save any match from citiesToChooseFrom array, to filteredCitiesToChooseFrom array
         setInputCity(currentTextString);
         setFilteredCitiesToChooseFrom(citiesToChooseFrom.sort().filter( cityItem =>(
             cityItem.toLocaleLowerCase().match(inputCity.toLocaleLowerCase())
@@ -30,9 +24,13 @@ const SelectCity = () => {
     const selectCityHandler = (city) => {
         setInputCity(city);
         setFilteredCitiesToChooseFrom([]);
+        //user selects city so we fetch the data from the api
+        getApiData(city);
     }
 
-    //additional functions go here
+    /*
+        -----------Additional functions go here-----------------
+    */
     const renderSuggestions = () => {
         if(filteredCitiesToChooseFrom.length === 0){
             return null;
@@ -45,6 +43,22 @@ const SelectCity = () => {
             </ul>
         )
     }
+
+    const getApiData = async (city) => {
+        //Fetch data from api based on the city the user selects
+        const apiLink = `https://api.openaq.org/v1/latest?city=${city}`;
+        const response = await fetch(apiLink);
+        const responseJSON = await response.json();
+        const cityData = await responseJSON.results[0];
+
+        //Save the data to a new cell of the allLocations array
+        await setAllLocations([...allLocations, {
+            city: cityData.city,
+            location: cityData.location,
+            measurements: cityData.measurements
+        }]);
+    }
+
     return(
         <div className="selectCity-section">
             <form>

@@ -9,9 +9,10 @@ export const StateProvider = (props) => {
     const [cityOptions, setCityOptions] = useState(allCities);
     const [inputCity, setInputCity] = useState('');
     const [filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom] = useState([]);
+    const [allLocations, setAllLocations] = useState([]);
 
     return(
-        <StateContext.Provider value={[cityOptions, setCityOptions, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom]}>
+        <StateContext.Provider value={[cityOptions, setCityOptions, inputCity, setInputCity, filteredCitiesToChooseFrom, setFilteredCitiesToChooseFrom, allLocations, setAllLocations]}>
             {props.children}
         </StateContext.Provider>
     )
